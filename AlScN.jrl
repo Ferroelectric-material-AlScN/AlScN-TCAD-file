@@ -1,0 +1,155 @@
+;;
+;; (journal:on "/home/student/Desktop/AlScN/AlScN.jrl")
+;; "/home/student/Desktop/AlScN/AlScN.jrl"
+(sde:set-default-material "GaN")
+;; "Silicon"
+(bound? 'region_GaN_Cap)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 0.002 14.07 0) "GaN" "region_GaN_Cap")
+;; #[body 5 1]
+(sde:set-default-material "AlGaN")
+;; "GaN"
+(bound? 'region_AlGaN)
+;; #f
+(sdegeo:create-rectangle (position 0.002 0 0)  (position 0.024 14.07 0) "AlGaN" "region_AlGaN")
+;; #[body 6 1]
+(sde:set-default-material "AlN")
+;; "AlGaN"
+(bound? 'region_AlN)
+;; #f
+(sdegeo:create-rectangle (position 0.024 0 0)  (position 0.025 14.07 0) "AlN" "region_AlN")
+;; #[body 7 1]
+(sde:set-default-material "GaN")
+;; "AlN"
+(bound? 'region_GaN_Channel)
+;; #f
+(sdegeo:create-rectangle (position 0.025 0 0)  (position 0.325 14.07 0) "GaN" "region_GaN_Channel")
+;; #[body 8 1]
+(bound? 'region_GaN_buffer)
+;; #f
+(sdegeo:create-rectangle (position 0.325 0 0)  (position 1.325 14.07 0) "GaN" "region_GaN_buffer")
+;; #[body 9 1]
+(sde:set-default-material "AlOx")
+;; "GaN"
+(bound? 'region_Al2O3_substrate)
+;; #f
+(sdegeo:create-rectangle (position 1.325 0 0)  (position 3.325 14.07 0) "AlOx" "region_Al2O3_substrate")
+;; #[body 10 1]
+(sde:set-default-material "Metal")
+;; "AlOx"
+(bound? 'region_Source)
+;; #f
+;; (sdegeo:create-rectangle (position -0.035 0 0)  (position 0.035 0 0) "Metal" "region_Source")*** Error sdegeo:create-rectangular-sheet: cannot make wire with duplicate vertices
+;; 
+;*** ERROR ***
+;; 
+(bound? 'region_Source)
+;; #f
+(sdegeo:create-rectangle (position -0.035 0 0)  (position 0 0.035 0) "Metal" "region_Source")
+;; #[body 11 1]
+(sde:set-default-material "AlScN")
+;; "Metal"
+(bound? 'region_AlScN_Dielectric)
+;; #f
+(sdegeo:create-rectangle (position -0.035 5.035 0)  (position 0 8.035 0) "AlScN" "region_AlScN_Dielectric")
+;; #[body 12 1]
+(sde:set-default-material "Metal")
+;; "AlScN"
+(bound? 'region_Gate)
+;; #f
+(sdegeo:create-rectangle (position -0.07 5.035 0)  (position -0.035 8.035 0) "Metal" "region_Gate")
+;; #[body 13 1]
+(bound? 'region_Drain)
+;; #f
+(sdegeo:create-rectangle (position -0.035 14.035 0)  (position 0 14.07 0) "Metal" "region_Drain")
+;; #[body 14 1]
+(sdegeo:define-contact-set "Source" 4  (color:rgb 1 0 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "Gate" 4  (color:rgb 1 0 1 ) "##")
+;; ()
+(sdegeo:define-contact-set "Drain" 4  (color:rgb 1 1 0 ) "##")
+;; ()
+(sdegeo:set-current-contact-set "Source")
+;; ""
+(sdegeo:set-contact (list (car (find-edge-id (position -0.035 0.0175 0)))) "Source")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position -0.0175 0.035 0))) (car (find-edge-id (position -0.0175 0 0))) (car (find-edge-id (position 0 0.0175 0)))) "Source")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "Gate")
+;; "Source"
+(sdegeo:set-contact (list (car (find-edge-id (position -0.07 6.535 0))) (car (find-edge-id (position -0.0525 5.035 0))) (car (find-edge-id (position -0.035 6.535 0))) (car (find-edge-id (position -0.0525 8.035 0)))) "Gate")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "Drain")
+;; "Gate"
+(sdegeo:set-contact (list (car (find-edge-id (position -0.035 14.0525 0))) (car (find-edge-id (position -0.0175 14.035 0))) (car (find-edge-id (position -0.0175 14.07 0))) (car (find-edge-id (position 0 14.0525 0)))) "Drain")
+
+;; ()
+(render:rebuild)
+;; ()
+(bound? 'RefEvalWin_Overall)
+;; #f
+(sdedr:define-refeval-window "RefEvalWin_Overall" "Rectangle"  (position 0 0 0) (position 3.325 14.07 0))
+;; #[body 85 1]
+(sdedr:define-refinement-size "RefinementDefinition_AlScN" 0.005 0.05 0.001 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_AlScN" "RefinementDefinition_AlScN" (list "region" "region_AlScN_Dielectric" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_AlGaN_to_GaN_Channel" "Rectangle"  (position 0.022 0 0.0)  (position 0.032 14.07 0.0) )
+;; #[body 86 1]
+(sdedr:define-refinement-size "RefinementDefinition_AlGaN_To_GaN_Channel" 0.005 0.09 0.001 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementDefinition_AlGaN_To_GaN_Channel" "RefinementDefinition_AlGaN_To_GaN_Channel" (list "window" "RefEvalWin_AlGaN_to_GaN_Channel" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_Gate_AlScN_Interface" "Rectangle"  (position -0.05 5.035 0.0)  (position 0.025 8.035 0.0) )
+;; #[body 87 1]
+(sdedr:define-refinement-size "RefinementDefinition_AlScN_Gate_Interface" 0.005 0.05 0.001 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementDefinition_AlScN_Gate_Interface" "RefinementDefinition_AlScN_Gate_Interface" (list "window" "RefEvalWin_Gate_AlScN_Interface" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_GaN_Cap_AlGaN" "Rectangle"  (position 0.001 0 0.0)  (position 0.012 14.07 0.0) )
+;; #[body 88 1]
+(sdedr:define-refinement-size "RefinementDefinition_GaN_Cap_AlGaN" 0.005 0.05 0.001 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementDefinition_GaN_Cap_AlGaN" "RefinementDefinition_GaN_Cap_AlGaN" (list "window" "RefEvalWin_GaN_Cap_AlGaN" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_Gan_Channel_GaN_buff" "Rectangle"  (position 0.31 0 0.0)  (position 0.33 14.07 0.0) )
+;; #[body 89 1]
+(sdedr:define-refinement-size "RefinementDefinition_Gan_Channel_GaN_buff" 0.005 0.05 0.001 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementDefinition_Gan_Channel_GaN_buff" "RefinementDefinition_Gan_Channel_GaN_buff" (list "window" "RefEvalWin_Gan_Channel_GaN_buff" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_Gan_buff_subs" "Rectangle"  (position 1.32 0 0.0)  (position 1.33 14.07 0.0) )
+;; #[body 90 1]
+(sdedr:define-refinement-size "RefinementDefinition_Gan_buff_subs" 0.005 0.05 0.001 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementDefinition_Gan_buff_subs" "RefinementDefinition_Gan_buff_subs" (list "window" "RefEvalWin_Gan_buff_subs" ) )
+;; #t
+(sdedr:define-refinement-size "RefinementDefinition_overall" 50 50 35 35 )
+;; #t
+(sdedr:define-refinement-placement "RefinementDefinition_overall" "RefinementDefinition_overall" (list "window" "RefEvalWin_Overall" ) )
+;; #t
+(sde:set-project-name "sdemodel")
+;; ""
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:build-mesh "" "sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual sdemodel_msh.tdr &")
+;; 0
+;; (journal:off)

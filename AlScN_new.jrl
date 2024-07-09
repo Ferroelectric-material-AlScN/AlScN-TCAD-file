@@ -1,0 +1,219 @@
+;;
+;; (journal:on "/home/student/Desktop/AlScN/AlScN_new.jrl")
+;; "/home/student/Desktop/AlScN/AlScN_new.jrl"
+(bound? 'region_Silicon_substrate)
+;; #f
+(sdegeo:create-rectangle (position 1.253 0 0)  (position 2.253 6 0) "Silicon" "region_Silicon_substrate")
+;; #[body 5 1]
+(sde:set-default-material "GaN")
+;; "Silicon"
+(bound? 'region_GaN_Buffer)
+;; #f
+(sdegeo:create-rectangle (position 0.253 0 0)  (position 1.253 6 0) "GaN" "region_GaN_Buffer")
+;; #[body 6 1]
+(bound? 'region_GaN_channel)
+;; #f
+(sdegeo:create-rectangle (position 0.073 0 0)  (position 0.253 6 0) "GaN" "region_GaN_channel")
+;; #[body 7 1]
+(sde:set-default-material "AlN")
+;; "GaN"
+(bound? 'region_AlN)
+;; #f
+(sdegeo:create-rectangle (position 0.072 0 0)  (position 0.073 6 0) "AlN" "region_AlN")
+;; #[body 8 1]
+(sde:set-default-material "AlGaN")
+;; "AlN"
+(bound? 'region_AlGaN_Barrier)
+;; #f
+(sdegeo:create-rectangle (position 0.047 0 0)  (position 0.072 6 0) "AlGaN" "region_AlGaN_Barrier")
+;; #[body 9 1]
+(sde:set-default-material "GaN")
+;; "AlGaN"
+(bound? 'region_GaN_Cap_1)
+;; #f
+(sdegeo:create-rectangle (position 0.044 0 0)  (position 0.047 2.003 0) "GaN" "region_GaN_Cap_1")
+;; #[body 10 1]
+(sdegeo:set-default-boolean "ABA")
+;; "ABA"
+(bound? 'region_GaN_Cap_2)
+;; #f
+(sdegeo:create-rectangle (position 0.047 2 0)  (position 0.06 2.003 0) "GaN" "region_GaN_Cap_2")
+;; #[body 11 1]
+(bound? 'region_GaN_Cap_3)
+;; #f
+(sdegeo:create-rectangle (position 0.057 2.003 0)  (position 0.06 4 0) "GaN" "region_GaN_Cap_3")
+;; #[body 12 1]
+(bound? 'region_GaN_Cap_4)
+;; #f
+(sdegeo:create-rectangle (position 0.044 3.997 0)  (position 0.057 4 0) "GaN" "region_GaN_Cap_4")
+;; #[body 13 1]
+(bound? 'region_GaN_Cap_5)
+;; #f
+(sdegeo:create-rectangle (position 0.044 4 0)  (position 0.047 6 0) "GaN" "region_GaN_Cap_5")
+;; #[body 14 1]
+(sde:set-default-material "AlOx")
+;; "GaN"
+(bound? 'region_Al2O3_1)
+;; #f
+(sdegeo:create-rectangle (position 0.04 0 0)  (position 0.044 2.007 0) "AlOx" "region_Al2O3_1")
+;; #[body 15 1]
+(bound? 'region_Al2O3_2)
+;; #f
+(sdegeo:create-rectangle (position 0.04 2.003 0)  (position 0.057 2.007 0) "AlOx" "region_Al2O3_2")
+;; #[body 16 1]
+(bound? 'region_Al2O3_3)
+;; #f
+(sdegeo:create-rectangle (position 0.053 2.007 0)  (position 0.057 3.997 0) "AlOx" "region_Al2O3_3")
+;; #[body 17 1]
+(bound? 'region_Al2O3_4)
+;; #f
+(sdegeo:create-rectangle (position 0.04 3.993 0)  (position 0.053 3.997 0) "AlOx" "region_Al2O3_4")
+;; #[body 18 1]
+(bound? 'region_Al2O3_5)
+;; #f
+(sdegeo:create-rectangle (position 0.04 3.997 0)  (position 0.044 6 0) "AlOx" "region_Al2O3_5")
+;; #[body 19 1]
+(sde:set-default-material "AlScN")
+;; "AlOx"
+(sdegeo:set-default-boolean "ABA")
+;; "ABA"
+(sdegeo:set-default-boolean "ABA")
+;; "ABA"
+(sdegeo:set-default-boolean "ABA")
+;; "ABA"
+(bound? 'region_AlScN_1)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 0.04 2.047 0) "AlScN" "region_AlScN_1")
+;; #[body 20 1]
+(bound? 'region_AlScN_2)
+;; #f
+(sdegeo:create-rectangle (position 0.04 2.007 0)  (position 0.053 2.047 0) "AlScN" "region_AlScN_2")
+;; #[body 21 1]
+(bound? 'region_AlScN_3)
+;; #f
+(sdegeo:create-rectangle (position 0.013 2.047 0)  (position 0.053 3.993 0) "AlScN" "region_AlScN_3")
+;; #[body 22 1]
+(bound? 'region_AlScN_4)
+;; #f
+(sdegeo:create-rectangle (position 0 3.953 0)  (position 0.013 3.993 0) "AlScN" "region_AlScN_4")
+;; #[body 23 1]
+(bound? 'region_AlScN_5)
+;; #f
+;; (sdegeo:create-rectangle (position 0 3.993 0.0)  (position 0.04` 6 0.0) "AlScN" "region_AlScN_5")*** Error position: unbound variable: 0\.04\`
+;; 
+;*** ERROR ***
+;; 
+(bound? 'region_AlScN_6)
+;; #f
+(sdegeo:create-rectangle (position 0 3.993 0)  (position 0.04 6 0) "AlScN" "region_AlScN_6")
+;; #[body 24 1]
+(sde:set-default-material "Metal")
+;; "AlScN"
+(bound? 'region_Source)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 0.083 0.05 0) "Metal" "region_Source")
+;; #[body 25 1]
+(bound? 'region_Drain)
+;; #f
+(sdegeo:create-rectangle (position 0 5.95 0)  (position 0.083 6 0) "Metal" "region_Drain")
+;; #[body 26 1]
+(bound? 'region_Gate_1)
+;; #f
+(sdegeo:create-rectangle (position -0.15 2 0)  (position 0 4 0) "Metal" "region_Gate_1")
+;; #[body 27 1]
+(bound? 'region_Gate_2)
+;; #f
+(sdegeo:create-rectangle (position 0 2.047 0)  (position 0.013 3.953 0) "Metal" "region_Gate_2")
+;; #[body 28 1]
+(sdegeo:define-contact-set "Gate" 4  (color:rgb 1 0 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "Source" 4  (color:rgb 1 0 1 ) "##")
+;; ()
+(sdegeo:define-contact-set "Drain" 4  (color:rgb 1 1 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "Body" 4  (color:rgb 1 1 1 ) "##")
+;; ()
+(sdegeo:set-current-contact-set "Gate")
+;; ""
+(sdegeo:set-contact (list (car (find-edge-id (position -0.15 3 0))) (car (find-edge-id (position -0.075 2 0))) (car (find-edge-id (position -0.075 4 0))) (car (find-edge-id (position 0 3.0 0))) (car (find-edge-id (position 0.013 3.0 0))) (car (find-edge-id (position 0.0065 3.953 0))) (car (find-edge-id (position 0.0065 2.047 0))) (car (find-edge-id (position 0 2.0235 0))) (car (find-edge-id (position 0 3.973 0))) (car (find-edge-id (position 0 3.9965 0)))) "Gate")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "Source")
+;; "Gate"
+(sdegeo:set-contact (list (car (find-edge-id (position 0 0.025 0))) (car (find-edge-id (position 0.0415 0 0))) (car (find-edge-id (position 0.02 0.05 0))) (car (find-edge-id (position 0.042 0.05 0))) (car (find-edge-id (position 0.0455 0.05 0))) (car (find-edge-id (position 0.0595 0.05 0))) (car (find-edge-id (position 0.0725 0.05 0))) (car (find-edge-id (position 0.078 0.05 0))) (car (find-edge-id (position 0.083 0.025 0)))) "Source")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "Drain")
+;; "Source"
+(sdegeo:set-contact (list (car (find-edge-id (position 0 5.975 0))) (car (find-edge-id (position 0.02 5.95 0))) (car (find-edge-id (position 0.0415 6 0))) (car (find-edge-id (position 0.042 5.95 0))) (car (find-edge-id (position 0.0455 5.95 0))) (car (find-edge-id (position 0.0595 5.95 0))) (car (find-edge-id (position 0.0725 5.95 0))) (car (find-edge-id (position 0.078 5.95 0))) (car (find-edge-id (position 0.083 5.975 0)))) "Drain")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "Body")
+;; "Drain"
+(sdegeo:set-contact (list (car (find-edge-id (position 2.253 3 0)))) "Body")
+
+;; ()
+(render:rebuild)
+;; ()
+(bound? 'RefEvalWin_Overall)
+;; #f
+(sdedr:define-refeval-window "RefEvalWin_Overall" "Rectangle"  (position 0 0 0) (position 2.253 6 0))
+;; #[body 253 1]
+(sdedr:define-refinement-size "RefinementDefinition_Overall" 50 50 25 25 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_Overall" "RefinementDefinition_Overall" (list "window" "RefEvalWin_Overall" ) )
+;; #t
+(sdedr:define-refinement-size "RefinementDefinition_Gate_2" 50 50 25 25 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_Gate_2" "RefinementDefinition_Gate_2" (list "region" "region_Gate_2" ) )
+;; #t
+(sdedr:define-refinement-size "RefinementDefinition_Gate_1" 50 50 25 25 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_Gate_1" "RefinementDefinition_Gate_1" (list "region" "region_Gate_1" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_GaN_Buff" "Rectangle"  (position 1.243 0 0.0)  (position 1.263 6 0.0) )
+;; #[body 254 1]
+(sdedr:define-refinement-size "RefinementDefinition_GaN_buff" 0.05 0.05 0.01 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_GaN_buff" "RefinementDefinition_GaN_buff" (list "region" "region_Gate_2" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_Gan_channel_buff" "Rectangle"  (position 0.253 0 0.0)  (position 0.263 6 0.0) )
+;; #[body 255 1]
+(sdedr:define-refinement-size "RefinementDefinition_GaN_channel_buff" 0.05 0.05 0.01 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_GaN_channel_buff" "RefinementDefinition_GaN_channel_buff" (list "window" "RefEvalWin_Gan_channel_buff" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_channel_barrier" "Rectangle"  (position 0.062 0 0.0)  (position 0.085 6 0.0) )
+;; #[body 256 1]
+(sdedr:define-refinement-size "RefinementDefinition_channel_barr" 0.005 0.005 0.001 0.001 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_channel_barr" "RefinementDefinition_channel_barr" (list "window" "RefEvalWin_channel_barrier" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_Ferro_region" "Rectangle"  (position 0.013 2 0.0)  (position 0.08 6 0.0) )
+;; #[body 257 1]
+(sdedr:define-refinement-size "RefinementDefinition_ferro_region" 0.005 0.005 0.001 0.001 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_ferro_region" "RefinementDefinition_ferro_region" (list "window" "RefEvalWin_Ferro_region" ) )
+;; #t
+(sde:set-project-name "sdemodel")
+;; ""
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:build-mesh "" "sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual sdemodel_msh.tdr &")
+;; 0
+;; (journal:off)

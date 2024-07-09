@@ -1,0 +1,5 @@
+DATE: 07/24/24-00:10:18.183 cmlog.txt
+
+07/24/24-00:10:18.247|This localhost (server) information:
+	Name:    localhost
+	Address: 127.0.0.1
