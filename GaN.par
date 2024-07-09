@@ -1,0 +1,910 @@
+* Copyright (c) 1994-2017 Synopsys, Inc.
+* This parameter file and the associated documentation are proprietary
+* to Synopsys, Inc.  This parameter file may only be used in accordance
+* with the terms and conditions of a written license agreement with
+* Synopsys, Inc.  All other use, reproduction, or distribution of this
+* parameter file is strictly prohibited.
+
+* [01Bou] V. Bougrov, M. E. Levinshtein, S. L. Rumyantsev, A. Zubrilov, Properties of Advanced
+* Semiconductor Materials GaN, AlN, InN, BN, SiC, SiGe, John Wiley & Sons, New York, 2001 
+* [73Bar] A. S. Barker, M. Ilegems, Infrared lattice vibrations and free-electron dispersion in GaN, 
+* Phys. Rev., B7, 1973
+* [77SiC] E. K. Sichel, J. I. Pankove, Thermal conductivity of GaN 25-360K, Phys. Chem. Solids, 39, 3, 1977
+* [01Vur] I. Vurgaftman, J. R. Meyer, L. R. Ram-Mohan, Band parameters for III-V compound semiconductors
+* and their alloys, Journal of Applied Physics, 89, 11, 2001
+* [03Vur] I. Vurgaftman, L. R. Ram-Mohan, Band parameters for III-V compound semiconductors
+* and their alloys, Journal of Applied Physics, 94, 6, 2003
+* [16Mic] G. Miceli, A. Pasquarello, Self-compensation due to point defects in Mg-doped GaN, Phys. Rev. B, 93, 165207, 2016
+* [17Lea] O’Leary, S. K., Siddiqua, P., Hadi, W. A., Foutz, B. E., Shur, M. S., Electron Transport Within III-V
+*  Nitride Semiconductors, In Springer Handbook of Electronic and Photonic Materials (pp. 1–1). Springer International
+*  Publishing. https://doi.org/10.1007/978-3-319-48933-9_32
+* [07Pip] Piprek J., Nitride Semiconductor Devices: Principles and Simulation, J. Piprek (Ed.), 
+*  Nitride Semiconductor Devices. Wiley. https://doi.org/10.1002/9783527610723
+* [99Mue] S. Muensit, E. M. Goldys, and I. L. Guy, Appl. Phys. Lett. 75, 3955 (1999).
+
+Epsilon
+  {
+    * Ratio of the permittivities of material and vacuum
+    * epsilon() = epsilon
+					
+    epsilon = 8.9 #[1], ioffe database, [01Bou], Wurtzite, normal to c-axis, higher values up to 9.7 are often used
+    * epsilon = 9.7 #[1], ioffe database, Zinc Blende, [01Bou]
+  }
+		
+Epsilon_aniso 
+  {
+    * Ratio of the permittivities of material and vacuum
+
+    epsilon = 9.74 #[1], ioffe database, ratio of 1.095 from [73Bar], Wurtzite, parallel to c-axis, higher values up to 10.5
+     * are often used, e.g. when using 9.5 for normal to c-axis, original values from [73Bar] are 9.5 (normal to c-axis) and
+     * 10.4(parallel to c-axis)		
+  }	
+
+Epsilon_Inf
+  {
+    * Ratio of the high frequency limit of permittivities of material and vacuum
+    epsilon_inf = 5.35 #[1],[17Lea] 
+  }			
+
+*  refractiveindex{...}
+*  By default, for mole fraction dependency of parameters
+*  of the model, the following linear interpolation is applied
+*  between two materials: P = x * P(AlN) + (1-x) * P(GaN)
+*  where P(m) is a parameter of material m.
+*  If the parameters are specified, then its values
+*  will be used instead of the interpolation.
+
+ComplexRefractiveIndex
+  { 
+    * Complex refractive index model: n_complex = n + i*k (unitless)
+    * with n = n_0 + delta_n_lambda + delta_n_T + delta_n_carr + delta_n_gain
+    *  = k_0 + delta_k_carr
+    * Mole fraction dependence (real and imag):
+    *  n_0, k_0
+    *  n_0 = 2.45
+    *  k_0 = 0.0
+    * Wavelength dependence (real and imag):
+    *  Formula 0: delta_n_lambda = Cn_lambda * lambda + Dn_lambda * lambda^2
+    *             delta_k_lambda = Ck_lambda * lambda + Dk_lambda * lambda^2
+    *  Formula 1: Read tabulated values
+    *             NumericalTable (...)
+    *  Formula 2: Read tabulated values from file
+    *             Numerical table = <string>
+
+    Formula = 1
+    TableInterpolation = PositiveSpline, PositiveSpline
+    NumericalTable (
+      0.309950000 2.746248 0.36;
+      0.354228571 2.599000 0.32;
+      0.413266667 2.492269 0.016;
+      0.433928335 2.467332 0.012;
+      0.454590000 2.446464 0.008;
+      0.495920000 2.413675 0;
+      0.619900000 2.355923 0;
+      0.826533333 2.314508 0;
+      1.239800000 2.286603 0;
+    )
+
+  * Temperature dependence (real):
+  *  delta_n_T = n_0 * ( Cn_temp * (T-Tpar))
+  Cn_temp = 4.273e-5 #[K^-1]
+  Tpar = 3.0000e+02 #[K]
+
+  * Carrier dependence (real):
+  *  delta_n_carr = - Cn_carr * (const.) * (n/m_e + p/m_h)
+  Cn_carr(0) = 0 #[1]
+  Cn_carr(1) = 0 #[1]
+
+  * Carrier dependence (imag):
+  *  delta_k_carr = wavelength / (4*PI) * (Ck_carr_n*n + Ck_carr_p*p)
+  Ck_carr = 0.0000e+00 ,  0.0000e+00      # [1]
+
+  * Gain dependence (real):
+  *  lin: delta_k_gain = Cn_gain * ( (n+p)/2 - Npar )
+  *  log: delta_k_gain = Cn_gain * log ( (n+p)/(2 - Npar ) )
+  Cn_gain = 0.0000e+00 #[cm^3]
+  Npar = 1.0000e+18 #[cm^-3]
+}
+							
+SpectralConversion
+  { 
+    * Spectral Conversion Model
+    * No default model, user has to define.
+    * All wavelength parameters should be in nanometers.
+    * Choice of Analytic or NumericalTable selected in Physics section of region
+    * ConversionEfficiency = float     * ratio of absorbed photons that are reemitted.
+    * AbsorptionScaling = float        * scale absorption
+    * EmissionScaling = float          * scale emission
+    * Analytic (
+    *  AbsorptionProfile = (
+    *   Gaussian(lambda0 sigma peakvalue dc_offset lambda_range0 lambda_range1)
+    *   Lorentzian(lambda0 width peakvalue dc_offset lambda_range0 lambda_range1)
+    *   ...
+    *   )
+    *  EmissionProfile = (
+    *   Gaussian(lambda0 sigma peakvalue dc_offset lambda_range0 lambda_range1)
+    *   Lorentzian(lambda0 width peakvalue dc_offset lambda_range0 lambda_range1)
+    *   ...
+    *   )
+    * )
+    * NumericalTable (
+    *  AbsorptionProfile = (
+    *   lambda0 value0
+    *   lambda1 value1
+    *   ...
+    *   )
+
+    * EmissionProfile = (
+    *  lambda0 value0
+    *  lambda1 value1
+    *  ...
+    *  )
+    ConversionEfficiency = 1.0
+}
+
+LatticeHeatCapacity
+  { 
+    * lumped electron-hole-lattice heat capacity
+    * cv() = cv + cv_b * T + cv_c * T^2 + cv_d * T^3 
+
+    * without temperature dependence
+    * cv = 3.0 #[J/(K cm^3)], Ioffe database: [01Bou] 
+    * cv_b = 0.0000e+00 #[J/(K^2 cm^3)]
+    * cv_c = 0.0000e+00 #[J/(K^3 cm^3)]
+    * cv_d = 0.0000e+00 #[J/(K^4 cm^3)]
+    
+    * with temperature dependence
+    * absolut value at 300K normalized to [01Bou]
+    * dependence on temperature extracted from [77Bar] and [98Nip] in www.ioffe.ru 
+    cv = 0.9177 #[J/(K cm^3)]
+    cv_b = 9.2626e-03 #[J/(K^2 cm^3)]
+    cv_c = -9.1800e-06 #[J/(K^3 cm^3)]
+    cv_d = 3.0900e-09 #[J/(K^4 cm^3)]
+  }
+
+Kappa
+  {
+    Formula =  0				
+    1/kappa =  0.137 #[K*cm/W], ioffe database [77SiC]				
+    1/kappa_b =  0.00355 #[cm/W], ioffe database [77SiC]
+    1/kappa_c = -4.51e-6 #[cm/(W*K)], ioffe database [77SiC]
+  }
+
+* Kappa_aniso {}
+
+* CarrierThermalConductivity {}
+
+EnergyRelaxationTime
+  { 
+    * Energy relaxation times in picoseconds
+    tau_w_ele = 0.2 #[ps]
+    tau_w_hol = 0.2 #[ps]
+
+    * Below is the example of energy relaxation time approximation
+    * by the ratio of two irrational polynomials.
+    * If Wmax(interval-1) < Wc < Wmax(interval), then:
+    * tau_w = (tau_w)*(Numerator^Gn)/(Denominator^Gd),
+    * where (Numerator or Denominator)=SIGMA[A(i)(Wc^P(i))],
+    * Wc=1.5(k*Tcar)/q (in eV).
+    * By default: Wmin(0)=Wmax(-1)=0; Wmax(0)=infinity.
+    * The option can be activated by specifying appropriate Formula equal to 2.
+    *  Formula(tau_w_ele) = 2
+    *  Formula(tau_w_hol) = 2
+    *  Wmax(interval)_ele = 
+    *  tau_w_ele(interval) =     
+    *   Numerator(interval)_ele {
+    *       A(0) = 
+    *       P(0) = 
+    *       A(1) = 
+    *       P(1) = 
+    *       G = 
+    *     }
+    *   Denominator(interval)_ele {
+    *       A(0) = 
+    *       P(0) = 
+    *       G = 
+    *     }
+    * Note: Energy relaxation times can be either molefraction dependent
+    * or energy dependent, but not both!
+    * Wmax(interval)_hol = 
+    * tau_w_hol(interval) = ... see for electrons     
+  }
+
+EnergyFlux
+  { 
+    * Coefficient in front of the energy flux equation
+    * energy_flux_coef=0.6 corresponds to Stratton model
+    energy_flux_coef_ele = 0.6 #[1]
+    energy_flux_coef_hol = 0.6 #[1]
+  }
+
+ThermalDiffusion
+  { 
+    * Thermal diffusion factor, td: td*mu*kB*N*grad(T), td=0 for Stratton model
+    * Carrier diffusion factor, td_g: mu*kB*(td_g*Tcarrier + (1-td_g)*Tlattice)*grad(N)
+
+    td_n = 0.0000e+00 #[1]
+    td_p = 0.0000e+00 #[1]
+    td_gn = 1 #[1]
+    td_gp = 1 #[1]
+  }
+
+HeatFlux
+  { 
+    * Heat flux diffusion factor, hf: hf*mu*(kB^2/q)*N*T*grad(T) 
+    hf_n = 1 #[1]
+    hf_p = 1 #[1]
+
+    * Coefficients can be defined also as: hf_new = hf*(1.+Delta(w))
+    * where Delta(w) is the ratio of two irrational polynomials.
+    * If Wmax(interval-1) < Wc < Wmax(interval), then:
+    * Delta(w) = factor*(Numerator^Gn)/(Denominator^Gd),
+    * where (Numerator or Denominator)=SIGMA[A(i)(w^P(i))], w=Tc/Tl
+    * By default: Wmin(0)=Wmax(-1)=0; Wmax(0)=infinity.
+    * Option can be activated by specifying nonzero 'factor'.
+    * Wmax(interval)_ele = 
+    * F(interval)_ele = 1    
+    * Numerator(interval)_ele {
+    *     A(0) = 
+    *     P(0) = 
+    *     A(1) = 
+    *     P(1) = 
+    *     G = 
+    *   }
+    * Denominator(interval)_ele {
+    *     A(0) = 
+    *     P(0) = 
+    *     G = 
+    *   }
+    * Wmax(interval)_hol = 
+    * F(interval)_hol = 1 
+    * Alternatively, the function Delta(w) can also be
+    * specified as a spline function, for example:
+    * Spline (electron) {
+    *     0 1
+    *     1 1
+    *     2 0.8
+    *     4 0.6
+    *     10  0.5
+    *   }
+    *
+    * Spline (hole) {
+    *     0 1
+    *     1 1.1
+    *     2   0.9
+    *     4   0.8
+    *     10  0.75
+    *   }
+    * The given data points are interpolated by a cubic spline.  Zero
+    * derivatives are imposed as boundary conditions at the end points.
+    * The spline function remains constant beyond the end points.
+  }
+
+AvalancheFactors
+  { 
+    * Coefficientss for avalanche generation with hydro
+    * Factors n_l_f, p_l_f for energy relaxation length in the expressions
+    * for effective electric field for avalanche generation:
+    *  eEeff = eEeff / n_l_f  ( or b = b*n_l_f ) 
+    *  hEeff = hEeff / p_l_f  ( or b = b*p_l_f ) 
+    * Additional coefficients n_gamma, p_gamma, n_delta, p_delta 
+    n_l_f = 0.8 #[1]
+    p_l_f = 0.8 #[1]
+    n_gamma = 0.0000e+00 #[1]
+    p_gamma = 0.0000e+00 #[1]
+    n_delta = 0.0000e+00 #[1]
+    p_delta = 0.0000e+00 #[1]
+  }
+
+TEPower
+  { 
+    s_n = 1 #[1]
+    s_p = 1 #[1]
+    scale_n = 1 #[1]
+    scale_p = 1 #[1]
+  }
+
+Ionization
+  {
+    Species ("pMagnesiumActiveConcentration")
+      {
+        type = acceptor
+        E_0 = 0.2 #[16Mic]
+        alpha = 8.0e-9 #[16Mic]
+        g = 4
+	Xsec = 1.0e-14
+      }
+  }
+
+Bandgap
+  { 
+    * Eg = Eg0 + alpha Tpar2 / (beta + Tpar) - alpha T2 / (beta + T)
+    * Parameter 'Tpar' specifies the value of lattice 
+    * temperature, at which parameters below are defined
+    * Chi0 is electron affinity.
+
+    * Chi0 = 4.064 #[eV], [01Bou]
+    Bgn2Chi = 0.5 #[1]
+    Eg0 = 3.51	#[eV], [07Pip]
+    alpha = 9.14e-04 #[eV/K], [07Pip]
+    beta = 8.25e+02 #[K], [07Pip]
+    Tpar = 0.0000e+00 #[K]
+
+    Chi0 = 3.922 #[eV], no reference
+    * Eg0 = 3.507 #[eV], [01Vur]
+    * alpha = 9.09e-04 #[eV/K], [01Vur]
+    * beta = 8.36e+02 #[K], [01Vur]
+  }
+
+* OldSlotboom {}
+
+* Slotboom {}
+
+* delAlamo {}
+
+* Bennett {}
+
+* JainRoulston {}
+
+* FreeCarrierAbsorption {}
+
+QWStrain
+  {
+    * Zincblende crystals:
+    * Parameters: a_nu, a_c, b, C_12, C_11
+    * StrainConstant eps (formula = 1) or lattice constant
+    * a0 (formula = 2) for energy shift of quantum-well subbands
+    * a0(T) = a0 + alpha (T-Tpar)
+    * Wurtzite crystals:
+    * Parameters: a_c, D1, D2, D3, D4, C_13, C_33
+    * Lattice constants a0 and c0 (formula 2 must be used)
+    * a0(T) = a0 + alpha (T-Tpar)
+    * c0(T) = c0 + alpha (T-Tpar)
+
+    * Default formula = 1 #[1]
+    eps = 0.0000e+00 #[1]
+    a0 = 3.1890e-10 #[cm]
+    alpha = 0.0000e+00 #[cm/K]
+    Tpar = 3.0000e+02 #[K]
+    a_nu = 0.19	#[eV]
+    a_c = -4.0800e+00 #[eV]
+    b_shear = 0.9163 #[eV]
+    c_11 = 11.879 #[1e-2 GPa]
+    c_12 = 5.376 #[1e-2 GPa]
+    d1 = -8.9000e-01 #[eV]
+    d2 = 4.27 #[eV]
+    d3 = 5.18 #[eV]
+    d4 = -2.5900e+00 #[eV]
+    c_13 = 1 #[1e-2 GPa]
+    c_33 = 3.92 #[1e-2 GPa]
+    c0 = 5.1850e-10 #[cm]
+  }
+
+BandstructureParameters
+  {
+    * Parameters for k.p bandstructure calculation:
+    * Zincblende crystals:
+    * Luttinger parameters gamma_1, gamma_2, gamma_3
+    * Spin-orbit split-off energy so
+    * Matrix element parameters for TE and TM modes ep_te and ep_tm
+    * Wurtzite crystals:
+    * Effective mass parameters A1, A2, A3, A4, A5, A6
+    * Spin-orbit split-off energy so
+    * Crystal-field split  energy cr
+    * Matrix element parameters for TE and TM modes ep_te and ep_tm
+
+    gamma_1 = 6.85 #[1]
+    gamma_2 = 2.1 #[1]
+    gamma_3 = 2.9 #[1]
+
+    so = 0.014 #[eV]
+    ep_te = 18.8 #[eV]
+    ep_tm = 12.4 #[eV]
+    cr = 0.019 #[eV]
+    A1 = -7.2400e+00 #[1]
+    A2 = -5.1000e-01 #[1]
+    A3 = 6.73 #[1]
+    A4 = -3.3600e+00 #[1]
+    A5 = -3.3500e+00 #[1]
+    A6 = -4.7200e+00 #[1]
+  }
+
+QWStrain
+  {
+    * Zincblende crystals:
+    *  Parameters: a_nu, a_c, b, C_12, C_11
+    *  StrainConstant eps (formula = 1) or lattice constant
+    *  a0 (formula = 2) for energy shift of quantum-well subbands.
+    *  a0(T) = a0 + alpha (T-Tpar)
+    * Wurtzite crystals:
+    *  Parameters: a_c, D1, D2, D3, D4, C_13, C_33
+    *  Lattice constants a0 and c0 (formula 2 must be used)
+    *  a0(T) = a0 + alpha (T-Tpar)
+    *  c0(T) = c0 + alpha (T-Tpar)
+
+    * Default formula = 1 #[1]
+
+    eps = 0.0000e+00 #[1]
+    a0 = 3.1890e-10 #[cm]
+    alpha = 0.0000e+00 #[cm/K]
+    Tpar = 3.0000e+02 #[K]
+    a_nu = 0.19 #[eV]
+    a_c = -4.0800e+00 #[eV]
+    b_shear = 0.9163 #[eV]
+    c_11 = 11.879 #[1e-2 GPa]
+    c_12 = 5.376 #[1e-2 GPa]
+    d1 = -8.9000e-01 #[eV]
+    d2 = 4.27 #[eV]
+    d3 = 5.18 #[eV]
+    d4 = -2.5900e+00 #[eV]
+    c_13 = 1 #[1e-2 GPa]
+    c_33 = 3.92 #[1e-2 GPa]
+    c0	= 5.1850e-10 #[cm]
+  }
+
+eDOSMass
+  {
+    * For effective mass specificatition Formula1 (me approximation):
+    * or Formula2 (Nc300) can be used:
+
+    Formula = 1 #[1]
+    * me/m0 = [ (6 * mt)^2 *  ml ]^(1/3) + mm
+    * mt = a[Eg(0)/Eg(T)] 
+    * Nc(T) = 2(2pi*kB/h_Planck^2*me*T)^3/2 = 2.540e19 ((me/m0)*(T/300))^3/2
+    a = 0.0 #[1]
+    ml = 0.0 #[1]
+    mm = 0.2 #[1]
+
+    * Formula = 2 # [1]
+    * me/m0 = (Nc300/2.540e19)2/3 
+    * Nc(T) = Nc300 * (T/300)3/2 
+    Nc300 = 2.23e+18 # [cm-3] #ioffe database, Wurtzite
+    #Nc300 = 2.0e+18 # [cm-3] #ioffe database, Zinc blende
+    #Nc300 =  2.65e18 # [cm-3] #default
+  }
+								
+hDOSMass
+  {
+    * For effective mass specificatition Formula1 (mh approximation):
+    * or Formula2 (Nv300) can be used :
+
+    Formula = 1 #[1]
+    * mh = m0*{[(a+bT+cT^2+dT^3+eT^4)/(1+fT+gT^2+hT^3+iT^4)]^(2/3) + mm}
+    * Nv(T) = 2(2pi*kB/h_Planck^2*mh*T)^3/2 = 2.540e19 ((mh/m0)*(T/300))^3/2 
+    a = 0.0 #[1]
+    b = 0.0 #[K^-1]
+    c = 0.0 #[K^-2]
+    d = 0.0 #[K^-3]
+    e = 0.0 #[K^-4]
+    f = 0.0 #[K^-1]
+    g = 0.0 #[K^-2]
+    h = 0.0 #[K^-3]
+    i = 0.0 #[K^-4]
+    mm = 1.5 #[1]
+
+    * Formula = 2	#[1]
+    * mh/m0 = (Nv300/2.540e19)2/3 
+    * Nv(T) = Nv300 * (T/300)3/2 
+    * mass=1.0*mo
+    Nv300 = 4.62e+19 #[cm-3], ioffe database Wurtzite
+    #Nv300 = 4.16e+18 #ioffe database Zinc blende
+    #Nv300 = 2.5e19 #[cm-3] #default
+  }												
+
+*  SchroedingerParameters{...}
+*  By default, for mole fraction dependency of parameters
+*  of the model, the following linear interpolation is applied
+*  between two materials: P = x * P(AlN) + (1-x) * P(GaN)
+*  where P(m) is a parameter of material m.
+*  If the parameters are specified, then its values
+*  will be used instead of the interpolation.
+
+*  QuantumPotentialParameters { ... } 
+*  By default, for mole fraction dependency of parameters
+*  of the model, the following linear interpolation is applied
+*  between two materials: P = x * P(AlN) + (1-x) * P(GaN)
+*  where P(m) is a parameter of material m.
+*  If the parameters are specified, then its values
+*  will be used instead of the interpolation.
+
+ConstantMobility:
+  { 
+    * mu_const = mumax (T/T0)^(-Exponent)
+	
+    mumax = 1.500e+03, 1.5000e+02 # [cm2/(Vs)] 
+    Exponent = 1, 2.1 # [1]
+    mutunnel = 0.05, 0.05
+  }
+
+* ConstantMobility_aniso{...}
+
+DopingDependence:
+  {
+    * For doping dependent mobility model three formulas
+    * can be used. Formula1 is based on Masetti et al. approximation.
+    * Formula2 uses approximation, suggested by Arora.
+    * If formula=1, model suggested by Masetti et al. is used:
+    * mu_dop = mumin1 exp(-Pc/N) + (mu_const - mumin2)/(1+(N/Cr)^alpha)
+    * - mu1/(1+(Cs/N)^beta), with mu_const from ConstantMobility
+
+    formula = 1, 1 # [1]
+
+    mumin1 = 175.0, 1.0					
+    mumin2 = 75.0, 0.0			
+    mu1	= 20.0, 0.0					
+    Pc = 6.50E+15, 5.00e+18			
+    Cr = 9.50E+16, 9.50e+16		
+    Cs = 1.00E+16, 1.00e+16		
+    alpha = 0.55, 0.9		        	
+    beta = 0.75, 0.0	
+
+    * mu_dop = muminA + mudA/(1.+(N/N00)^AA),
+    * where muminA=Ar_mumin*(T/T0)^Ar_alm; mudA = Ar_mud*(T/T0)^Ar_ald
+    * N is net doping
+    * N00=Ar_N0*(T/T0)^Ar_alN; AA = Ar_a*(T/T0)^Ar_ala
+
+    # formula = 2, 2 
+				
+    Ar_mumin = 160.0, 1.0			
+    Ar_alm = -1.02, -0.57	
+    Ar_mud = 1300.0, 150.0	
+    Ar_ald = -3.84, -2.23E+00	
+    Ar_N0 = 3.0E+17, 7.0E+16	
+    Ar_alN = 3.02, 2.4		
+    Ar_a = 0.66, 0.9		
+    Ar_ala = 0.81, -0.146
+  }
+
+* ConstantMobility_aniso{...}
+
+* PhuMob{...} 
+
+* EnormalDependence{...}
+
+IALMob:
+  {
+    EnormMinimum = 0
+    mumax = 1500.0, 150.0
+    mumin = 160.0, 1.0
+    alpha = 0.55, 0.9
+    theta = 2.285, 2.247
+    n_ref = 9.68e16, 2.23e17
+    me_over_m0 = 1.0
+    mh_over_m0 = 1.258
+    B = 0.0, 8.1e5
+    C = 1.0e6, 8.36e3
+    delta = 1.0e50, 2.58e14
+    eta = 1.0e50, 1.0e50
+    N1 = 1.0, 1.0
+    N2 = 1.0, 1.0
+    lambda = 0.0, 0.0
+    lambda_sr = 0.0, 0.0
+    A = 2.0, 2.0
+    alpha_sr = 0.0, 0.0
+    k = 1.0, 1.0
+    nu = 0.0, 0.0
+    s =	1.0e6, 0.3042
+    D1_inv = 500.0, 1.0
+    D2_inv = 400.0, 0.0
+    D1_acc = 1.0e12, 1.0e12
+    D2_acc = 0.0, 0.0
+    nsc_ref = 1.0e17, 1.0e18
+    ndop_ref = 1.0e18, 1.0e18
+    nu0_inv = 1.5, 0.0
+    nu1_inv = 0.0, 0.0
+    nu2_inv = 0.0, 0.0
+    nu0_inv_A = 0.0, 0.0
+    nu0_acc = 0.0, 0.0
+    nu1_acc = 0.0, 0.0
+    nu2_acc = 0.0, 0.0
+    nu0_acc_A = 0.0, 0.0
+    alpha1_inv = 0.0, 0.0
+    alpha2_inv = 0.0, 0.0
+    l_crit = 1.0, 1.0
+    l_crit_c = 1.0, 1.0
+  }
+
+*  EnormalDependence_aniso{...}
+
+*  NegInterfaceChargeMobility{...}
+
+*  NegInterfaceChargeMobility_aniso{...}
+
+*  PosInterfaceChargeMobility{...}
+
+*  PosInterfaceChargeMobility_aniso{...}
+
+*  Coulomb2DMobility{...}
+
+*  Coulomb2DMobility_aniso{...}
+
+HighFieldDependence:
+  {
+    * Caughey-Thomas model:
+    * mu_highfield = mu_lowfield / ( 1 + (mu_lowfield E / vsat)^beta )1/beta
+    * beta = beta0 (T/T0)^betaexp.
+
+    beta0 = 1.7, 1.7 #[1]
+    betaexp = 0.0000e+00, 0.0000e+00 #[1]
+
+    * Smoothing parameter for HydroHighField Caughey-Thomas model:
+    * if Tl < Tc < (1+K_dT)*Tl, then smoothing between low field mobility
+    * and HydroHighField mobility is used.
+    K_dT = 0.2, 0.2 #[1]
+
+    * Transferred-Electron Effect:
+    * mu_highfield = (mu_lowfield+(vsat/E)*(E/E0_TrEf)4)/(1+(E/E0_TrEf)4)
+    E0_TrEf = 1.5000e+05, 1.5000e+05 #[1]
+    Ksmooth_TrEf = 1, 1 #[1]
+
+    * For vsat either Formula1 or Formula2 can be used.
+    Vsat_Formula = 2, 2 #[1]
+
+    * Formula2 for saturation velocity: vsat = A_vsat - B_vsat*(T/T0)
+    * Parameter Vsat_Formula has to be equal to 2
+    A_vsat = 1.8000e+07, 1.0000e+07 #[1]
+    B_vsat = 0, 0 #[1]
+    vsat_min = 5.0000e+05, 5.0000e+05 #[1]
+  }
+
+*  HighFieldDependence_aniso{...}
+
+TransferredElectronEffect2:
+  { 
+    * Transferred Electron Effect 2:
+    *                mu_lowfield + mu1 * (F/E0)^alpha + vsat * F^(beta-1) / E1^beta
+    * mu_highfield = --------------------------------------------------------------
+    *                            1 + gamma * (F/E0)^alpha + (F/E1)^beta
+    mu1 = 0.0000e+00, 0.0000e+00 #[cm^2/Vs]
+    E0 = 2.2089e+05, 4.0000e+03 #[V/cm]
+    E1 = 2.2089e+05, 4.0000e+03 #[V/cm]
+    alpha = 0.7857, 0.0000e+00 #[1]
+    beta = 7.2044, 4 #[1]
+    gamma = 6.1973, 0.0000e+00 #[1]
+}
+
+TransferredElectronEffect2_aniso:
+  { 
+    * Transferred Electron Effect 2:
+    *                mu_lowfield + mu1 * (F/E0)^alpha + vsat * F^(beta-1) / E1^beta
+    * mu_highfield = --------------------------------------------------------------
+    *                            1 + gamma * (F/E0)^alpha + (F/E1)^beta
+    mu1 = 0.0000e+00, 0.0000e+00 #[cm^2/Vs]
+    E0 = 2.2089e+05, 4.0000e+03 #[V/cm]
+    E1 = 2.2089e+05, 4.0000e+03 #[V/cm]
+    alpha = 0.7857, 0.0000e+00 #[1]
+    beta = 7.2044, 4 #[1]
+    gamma = 6.1973, 0.0000e+00 #[1]
+  }
+
+Scharfetter * relation and trap level for SRH recombination:
+{ * tau = taumin + ( taumax - taumin ) / ( 1 + ( N/Nref )^gamma)
+  * tau(T) = tau * ( (T/300)^Talpha )          (TempDep)
+  * tau(T) = tau * exp( Tcoeff * ((T/300)-1) ) (ExpTempDep)
+	taumin		= 0.0000e+00 ,	0.0000e+00		# [s]
+	taumax		= 1.0000e-9 ,	1.0000e-9		# [s]
+	Nref		= 1.0000e+16 ,	1.0000e+16		# [cm^(-3)]
+	gamma		= 1 ,	1				# [1]
+	Talpha		= -1.5000e+00 ,	-1.5000e+00		# [1]
+	Tcoeff		= 2.55 ,	2.55			# [1]
+	Etrap		= 0.0000e+00				# [eV]
+}
+
+vanOverstraetendeMan
+  { 
+    * G_impact = alpha_n n v_drift_n  +  alpha_p p v_drift_p
+    * with alpha = gamma a  exp(-b gamma/E) for E<E0 (low) and E>E0 (high)
+    * with gamma = tanh(hbarOmega/(2kT0)) / tanh(hbarOmega/(2kT))
+
+    a(low) = 2.9e+08, 5.41e+06			
+    a(high) = 2.9e+08, 5.41e+06			
+    b(low) = 3.4e+07, 1.96e+07			
+    b(high) = 3.4e+07, 1.96e+07			
+    E0 = 1.0, 1.0			
+    hbarOmega = 0.066, 0.066
+
+    * a(low) = 2.11e+09, 4.39e+06 #[1/cm], [19Ji]
+    * a(high) = 2.11e+09, 4.39e+06 #[1/cm], [19Ji]
+    * b(low) = 3.689e+07, 1.8e+07 #[V/cm], [19Ji]
+    * b(high) = 3.689e+07, 1.8e+07 #[V/cm], [19Ji]
+
+    * a(low) = 4.48e+08, 7.13e+06 #[1/cm], [18Cao]
+    * a(high) = 4.48e+08, 7.13e+06 #[1/cm], [18Cao]
+    * b(low) = 3.39e+07, 1.46e+07 #[V/cm], [18Cao]
+    * b(high) = 3.39e+07, 1.46e+07 #[V/cm], [18Cao]
+
+    * a(low) = 2.69e+07, 4.32e+06 #[1/cm], [21Mae]
+    * a(high) = 2.69e+07, 4.32e+06 #[1/cm], [21Mae]
+    * b(low) = 2.27e+07, 1.31e+07 #[V/cm], [21Mae]
+    * b(high) = 2.27e+07, 1.31e+07 #[V/cm], [21Mae]			
+  }
+
+Auger * coefficients:
+{ * R_Auger = ( C_n n + C_p p ) ( n p - ni_eff^2)
+  * with C_n,p = (A + B (T/T0) + C (T/T0)^2) (1 + H exp(-{n,p}/N0))
+	A		= 1.0000e-30 ,	1.0000e-30	# [cm^6/s]
+	B		= 0.0000e+00 ,	0.0000e+00	# [cm^6/s]
+	C		= 0.0000e+00 ,	0.0000e+00	# [cm^6/s]
+	H		= 0.0000e+00 ,	0.0000e+00	# [1]
+	N0		= 1.0000e+18 ,	1.0000e+18	# [cm^(-3)]
+}
+
+RadiativeRecombination * coefficients:
+{ * R_Radiative = C (n p - ni_eff^2)
+	C	= 2.0000e-10	# [cm^3/s]
+}
+
+Piezoelectric_Polarization
+  { 
+    * The 'strain' model computes the polarization vector as follows: 
+    *  [P_x]   [psp_x]
+    *  [P_y] = [psp_y]
+    *  [P_z]   [psp_z + 2*d31*strain*(c11+c12-2*c13^2/c33)]
+    *  strain = (1-relax)*(a0-a)/a
+    * The 'stress' model computes the polarization vector as follows:
+    *  [P_x]   [psp_x]   [d11 d12 d13 d14 d15 d16]   [stress_XX]
+    *  [P_y] = [psp_y] + [d21 d22 d23 d24 d25 d26] * [stress_YY]
+    *  [P_z]   [psp_z]   [d31 d32 d33 d34 d35 d36]   [stress_ZZ]
+    *                                                [stress_YZ]
+    *                                                [stress_XZ]
+    *                                                [stress_XY] 
+    * Parameters: 
+    *  [psp_x]: spontaneous polarization vector,
+    *  [psp_y]  defined in crystal system [C/cm^2]
+    *  [psp_z]
+    *  c11, c12, c13, c33: stiffness constants, defined in crystal system [Pa]
+    *  a0: strained lattice constant [Angstrem]
+    *  a: unstrained lattice constant [Angstrem]
+    *  relax: relaxation parameter [1] 
+    *  d11 ... d36: piezoelectric coefficients, defined in crystal system [cm/V] 
+    * Fields:
+    *  [stress_XX]: stress tensor, defined in stress system [Pa]
+    *  [stress_YY]  
+    *  [stress_ZZ]
+    *  [stress_YZ]
+    *  [stress_XZ]
+    *  [stress_XY]
+    *  [P_x]: polarization vector, defined in simulation system [C/cm^2]
+    *  [P_y]  
+    *  [P_z]
+    * Coordinate systems: 
+    *   The simulation system is defined relative to the crystal system. For example:
+    *    LatticeParameters
+    *      {
+    *        X = (1, 0,  0)
+    *        Y = (0, 0, -1)
+    *      }
+    *   The stress coordinate system is defined relative to the simulation system. For example:
+    *     Physics
+    *       {
+    *         Piezo 
+    *           (
+    *             OriKddX = (-0.96  0.28  0)
+    *             OriKddY = ( 0.28  0.96  0)
+    *             Stress = (1e9  2e9  3e9  4e9  5e9  6e9) #[Pa]
+    *           )
+    *       }
+    * To compute the polarization vector, the stress tensor is first
+    * transformed from the stress system to the crystal system.  Then
+    * the polarization vector is evaluated according to the 'strain' or
+    * 'stress' model above.  Finally, the polarization vector is transformed
+    * from the crystal system to the simulation system.
+
+    formula = 1	
+
+    relax = 0.0
+
+    * piezoelectric coefficients:
+    d11 = 0.0000e+00 #[cm/V]
+    d12 = 0.0000e+00 #[cm/V]
+    d13 = 0.0000e+00 #[cm/V]
+    d14 = 0.0000e+00 #[cm/V]
+    d15 = 3.1000e-10 #[cm/V], [99Mue],[03Vur]		
+    d16	= 0.0000e+00 #[cm/V]
+    d21	= 0.0000e+00 #[cm/V]
+    d22 = 0.0000e+00 #[cm/V]
+    d23 = 0.0000e+00 #[cm/V]
+    d24 = 3.1000e-10 #[cm/V], [99Mue],[03Vur], d24=d15	
+    d25 = 0.0000e+00 #[cm/V]
+    d26 = 0.0000e+00 #[cm/V]
+    d31 = -1.6000e-10 #[cm/V], [03Vur]	
+    d32 = -1.6000e-10 #[cm/V], [03Vur], d32=d31	
+    d33 = 3.1000e-10 #[cm/V], [03Vur]	
+    d34 = 0.0000e+00 #[cm/V]
+    d35 = 0.0000e+00 #[cm/V]
+    d36 = 0.0000e+00 #[cm/V]
+   
+    * spontaneous polarization:
+    psp_x = 0.0000e+00 #[C/cm^2]
+    psp_y = 0.0000e+00 #[C/cm^2]
+    psp_z = -3.4000e-06 #[C/cm^2], [03Vur]
+
+  * stiffness constants:
+    c11 = 3.90e11 #[Pa], [03Vur] 
+    c12 = 1.45e11 #[Pa], [03Vur] 
+    c13 = 1.06e11 #[Pa], [03Vur] 
+    c14 = 0.0
+    c15 = 0.0	
+    c16 = 0.0	
+    c21 = 1.45e11 #[Pa], [03Vur]
+    c22 = 3.90e11 #[Pa], [03Vur]
+    c23 = 1.06e11 #[Pa], [03Vur]
+    c24 = 0.0
+    c25 = 0.0	
+    c26 = 0.0	
+    c31 = 1.06e11 #[Pa], [03Vur]
+    c32 = 1.06e11 #[Pa], [03Vur]
+    c33 = 3.98e11 #[Pa], [03Vur]
+    c34 = 0.0
+    c35 = 0.0	
+    c36 = 0.0	
+    c41 = 0.0
+    c42 = 0.0
+    c43 = 0.0
+    c44 = 1.05e11 #[Pa], [03Vur]
+    c45 = 0.0	
+    c46 = 0.0	
+    c51 = 0.0
+    c52 = 0.0
+    c53 = 0.0
+    c54 = 0.0
+    c55 = 1.05e11 #[Pa], [03Vur]	
+    c56 = 0.0	
+    c61 = 0.0
+    c62 = 0.0
+    c63 = 0.0
+    c64 = 0.0
+    c65 = 0.0
+    c66 = 1.295e11 #[pa], c66=(c11-c12)/2
+	
+    * piezoelectric coefficients 
+    e31	= -5.2740e-05 #[C/cm^2], e31=d31*(c11+c12)+d33*c13
+    e32	= -5.2740e-05 #[C/cm^2], e32=e31
+    e33	= 8.9460e-05 #[C/cm^2], e33=2*d31*c13+d33*c33
+    e15	= 3.2550e-05 #[C/cm^2], e15=d15*c44
+    e24	= 3.2550e-05 #[C/cm^2], e24=e15 	
+ 
+    * strain parameters:
+    a0 = 3.189 # [Angstrem]
+    a = 3.189 # [Angstrem]
+				
+  }
+
+BarrierTunneling
+  { 
+    * The values written below are just a starting point for calibration.
+    g = 1.0, 1.0 
+    mt = 0.25, 0.5 
+  }	
+
+QuantumPotentialParameters
+  { 
+    gamma = 0.42, 5.6	
+    theta = 0.5, 0.5	
+    xi = 1, 1	
+    eta = 1, 1	
+  }					
+
+LatticeParameters
+  {
+    * Default orientation for 2D simulations with Y-axis pointing down
+    * X = (1, 0, 0)
+    * Y = (0, 0,-1)
+    * S[i][j] - elasticity modulus; i,j = 1,2,...6 and j>=i.
+    * CrystalSystem is symmetry, used ONLY to define the elasticity matrix.
+    * Cubic (CrystalSystem=0): S[1][1],S[1][2],S[4][4]
+    * Hexagonal (CrystalSystem=1): S[1][1],S[1][2],S[1][3],S[3][3],S[4][4]
+ 
+    S[1][1] =  3.09e-01 # [1e-12 cm^2/din]
+    S[1][2] = -9.96e-02 # [1e-12 cm^2/din]
+    S[1][3] = -5.57e-02 # [1e-12 cm^2/din]
+    S[3][3] =  2.81e-01 # [1e-12 cm^2/din]
+    S[4][4] =  9.52e-01 # [1e-12 cm^2/din]
+    CrystalSystem = 1 # [1]
+  }
+
+Schottky{
+        *Based on IEDM 2016 Short Course page 21 Source: Prof. Saraswat
+        Pinning_CNL = 4.872
+}
+

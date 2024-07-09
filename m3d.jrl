@@ -1,0 +1,107 @@
+;;
+;; (journal:on "/home/student/Desktop/p1/m3d.jrl")
+;; "/home/student/Desktop/p1/m3d.jrl"
+(bound? 'region_1_AlGaN)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 0.024 5 0) "AlGaN" "region_1_AlGaN")
+;; #[body 5 1]
+(sde:set-default-material "GaN")
+;; "AlGaN"
+(bound? 'region_2_GaN)
+;; #f
+(sdegeo:create-rectangle (position 0.024 0 0)  (position 0.224 5 0) "GaN" "region_2_GaN")
+;; #[body 6 1]
+(sdegeo:set-default-boolean "ABA")
+;; "ABA"
+(bound? 'region_3_source)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 0.028 0.02 0) "GaN" "region_3_source")
+;; #[body 7 1]
+(sde:set-default-material "Metal")
+;; "GaN"
+(bound? 'region_4_drain)
+;; #f
+(sdegeo:create-rectangle (position 0 4.98 0)  (position 0.026 5 0) "Metal" "region_4_drain")
+;; #[body 8 1]
+(sdegeo:define-contact-set "body" 4  (color:rgb 1 0 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "drain" 4  (color:rgb 1 1 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "source" 4  (color:rgb 1 1 1 ) "##")
+;; ()
+(sdegeo:set-current-contact-set "body")
+;; ""
+(sdegeo:set-contact (list (car (find-edge-id (position 0.224 2.5 0)))) "body")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "source")
+;; "body"
+(sdegeo:set-contact (list (car (find-edge-id (position 0.012 0.02 0)))) "source")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 0.026 0.02 0)))) "source")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 0.028 0.01 0)))) "source")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "drain")
+;; "source"
+(sdegeo:set-contact (list (car (find-edge-id (position 0.012 4.98 0)))) "drain")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 0.025 4.98 0)))) "drain")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 0.026 4.99 0)))) "drain")
+
+;; ()
+(render:rebuild)
+;; ()
+(bound? 'RefEvalWin_overall)
+;; #f
+(sdedr:define-refeval-window "RefEvalWin_overall" "Rectangle"  (position 0 0 0) (position 0.224 5 0))
+;; #[body 46 1]
+(sdedr:define-refinement-size "RefinementDefinition_overall" 25 25 12.5 12.5 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_overall" "RefinementDefinition_overall" (list "window" "RefEvalWin_overall" ) )
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_2_interface" "Rectangle"  (position 0.022 0 0.0)  (position 0.026 5 0.0) )
+;; #[body 47 1]
+(sdedr:define-refinement-size "RefinementDefinition_interface" 0.01 0.01 0.001 0.001 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_interface" "RefinementDefinition_interface" (list "window" "RefEvalWin_2_interface" ) )
+;; #t
+(sde:set-project-name "sdemodel")
+;; ""
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:build-mesh "" "sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual sdemodel_msh.tdr &")
+;; 0
+;; (journal:save "/home/student/Desktop/p1/m3d.jrl")*** Error journal:save: Cannot Copy - Save file and current journal file are same - /home/student/Desktop/p1/m3d.jrl
+;; 
+;*** ERROR ***
+;; 
+(journal:clean "/home/student/Desktop/p1/m3d.jrl")
+;; 

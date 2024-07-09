@@ -1,0 +1,11 @@
+# Copyright (C) 1994-2019 Synopsys Inc.
+# swbtree vcurrent
+
+# --- simulation flow
+sde1 sde "" {}
+sdevice sdevice "" {}
+# --- variables
+# --- scenarios and parameter specs
+# --- simulation tree
+0 3 0 {} {default} 0
+1 4 3 {} {default} 0

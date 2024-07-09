@@ -1,0 +1,66 @@
+
+****************************************************************************
+***                       Sentaurus Workbench gjob                       ***
+***                        Version T-2022.03-SP2                         ***
+***                      (0.7745337, x86_64, Linux)                      ***
+***                                                                      ***
+***                Copyright (c) 1994-2022 Synopsys, Inc.                ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+gjob is running on host 'localhost' by user 'student'
+Binary '/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/bin/gjob'
+Command line options '-verbose -nice 19 --max_threads 4 -job 4 -swb_pid 3902 -gsub_pid 4220 -gsub_host localhost -gsub_port 43474 /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN'
+Current directory '/home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN'
+Project organization 'Traditional'
+Some relevant environment variables:
+	STROOT=/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/..
+	STRELEASE=current
+	STROOT_LIB=/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/lib
+	STDB=/opt/synopsys/student/DB
+	DATEX=/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/lib/datexcodes.txt
+	DISPLAY=:0
+
+Project '/home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN'
+Loading global tool database '/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/lib/glib2/tooldb.tcl'
+INITIALIZING PREPROCESSOR:
+Application mode: traditional
+Loading project tree '/home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/gtree.dat'
+Loading jobs and dependence graph '"/home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/gexec.cmd"'
+Loading project variables '/home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/sdevice_des.cmd
+Reading file /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/sdevice.par
+PREPROCESSING STEP 2:
+---------------------------------------
+Preprocessing file /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/sdevice_des.cmd for node 4
+'@tdr@' creates dependences with the node(s) '3'
++++Preprocessing results written to /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/pp4_des.cmd
+The node '4' has dependencies to the node(s) '3'
+---------------------------------------
+Preprocessing file /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/sdevice.par for node 4
++++Preprocessing results written to /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/pp4_des.par
+The node '4' has dependencies to the node(s) '3'
+Executing 'sdevice' binary in original user environment
+Start Simulation section
+23:41:06 Jul 08 2024     job 4 <sdevice> started on host 'localhost': "sdevice --max_threads 4  pp4_des.cmd"
+00:01:23 Jul 09 2024 +++ job 4 <sdevice> done: exit(0)
+End Simulation section
+Start Epilogue section
+00:01:23 Jul 09 2024 *** job 4 pre/post execution: eval " gjob::find_extracted_vars "/home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN" n4_des.out 4 "
+End Epilogue section
+Job succeeded
+gjob exits with status 0
