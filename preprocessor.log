@@ -1,0 +1,71 @@
+
+****************************************************************************
+***                       Sentaurus Workbench spp                        ***
+***                        Version T-2022.03-SP2                         ***
+***                      (0.7745337, x86_64, Linux)                      ***
+***                                                                      ***
+***                Copyright (c) 1994-2022 Synopsys, Inc.                ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+spp is running on host 'localhost' by user 'student'
+Binary: '/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/bin/spp'
+Command line options: '-verbose -i /home/student/Desktop/AlScN'
+Project organization 'Traditional'
+Some relevant environment variables:
+	STROOT=/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/..
+	STRELEASE=current
+	STROOT_LIB=/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/lib
+	STDB=/opt/synopsys/student/DB
+	DATEX=/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/lib/datexcodes.txt
+	DISPLAY=:0
+
+Preprocessing project '/home/student/Desktop/AlScN'
+Loading global tool database '/opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/lib/glib2/tooldb.tcl'
+Application mode: traditional
+spp will run in Global mode
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/student/Desktop/AlScN/gtree.dat'
+Loading project variables '/home/student/Desktop/AlScN/gvars.dat'
+--Get files to preprocess...
+  -->/home/student/Desktop/AlScN/sde1_dvs.cmd
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/student/Desktop/AlScN/sde1_dvs.cmd
+PREPROCESSING STEP 2:
+---------------------------------------
+Preprocessing file /home/student/Desktop/AlScN/sde1_dvs.cmd for node 3
++++Preprocessed file written to /home/student/Desktop/AlScN/pp3_dvs.cmd
+  -Parameter substitution: '@commands@' has been replaced by 'pp3_dvs.cmd'
+
+  -Parameter substitution: '@node@' has been replaced by '3'
+
+  -Parameter substitution: '@pwdout@' has been replaced by '/home/student/Desktop/AlScN'
+
+  -Parameter substitution: '@nodedir@' has been replaced by '.'
+
+  -Parameter substitution: '@node@' has been replaced by '3'
+
+cmd_line:-l n3_dvs.cmd
+  -Parameter substitution: '@stdout@' has been replaced by 'n3_dvs.out'
+
+  -Parameter substitution: '@node@' has been replaced by '3'
+
+post_tcl_cmd: extract_vars "$nodedir" n3_dvs.out 3 
+Writing 'gexec.cmd'
+saving variables
+PREPROCESSING FINISHED, Tue Jun 18 05:52:00 2024
+STATUS: Ok
+Processing time = 0 s
+

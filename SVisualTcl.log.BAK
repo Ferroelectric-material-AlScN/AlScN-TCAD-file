@@ -1,0 +1,73 @@
+###########################################
+# Sentaurus Visual T-2022.03-SP2.
+# Tcl log file.
+#------------------------------------------
+# Date: Jul 09, 2024. 00:10:18.
+# Version: 33.0.7745337 (0.7745337)
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: iitpkd21.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 3.10.0-1160.92.1.el7.x86_64.
+###########################################
+
+load_file /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/n4_ss_N1_0001_des.tdr -fod
+create_plot -dataset n4_ss_N1_0001_des
+select_plots {Plot_n4_ss_N1_0001_des}
+#-> Plot_n4_ss_N1_0001_des
+#-> Plot_n4_ss_N1_0001_des
+#-> n4_ss_N1_0001_des
+set_field_prop Polarization-X -plot Plot_n4_ss_N1_0001_des -geom n4_ss_N1_0001_des -show_bands
+#-> 0
+create_cutline -plot Plot_n4_ss_N1_0001_des -type y -at 3
+#-> C1(n4_ss_N1_0001_des)
+create_plot -dataset C1(n4_ss_N1_0001_des) -1d
+select_plots {Plot_C1(n4_ss_N1_0001_des)}
+#-> Plot_C1(n4_ss_N1_0001_des)
+#-> Plot_C1(n4_ss_N1_0001_des)
+create_curve -axisX X -axisY Polarization-X -dataset {C1(n4_ss_N1_0001_des)} -plot Plot_C1(n4_ss_N1_0001_des)
+#-> Curve_1
+set_axis_prop -plot Plot_C1(n4_ss_N1_0001_des) -axis x -range {-2.23794 4.85761}
+#-> 0
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -reset
+windows_style -style max
+#-> 0
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -window {-0.0156389 -1.06447e-06 0.063845 -9.36909e-07}
+remove_curves -plot Plot_C1(n4_ss_N1_0001_des) {Curve_1}
+#-> Curve_1
+create_curve -axisX X -axisY Polarization-Y -dataset {C1(n4_ss_N1_0001_des)} -plot Plot_C1(n4_ss_N1_0001_des)
+#-> Curve_1
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -window {-0.041385 -5.45951e-09 0.221723 -1.1885e-10}
+set_legend_prop -plot Plot_C1(n4_ss_N1_0001_des) -position {0.608059 0.836815}
+#-> 0
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 1.1
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 1.1
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 1.1
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 0.9
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 0.9
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 0.9
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 0.9
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -factor 0.9
+probe_curve {Curve_1} -valueX 0.0130655
+#-> -2.32610791854e-10
+probe_curve {Curve_1} -valueX 0.0527263
+#-> -5.38918362894e-09
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -reset
+remove_curves -plot Plot_C1(n4_ss_N1_0001_des) {Curve_1}
+#-> Curve_1
+create_curve -axisX X -axisY Polarization-X -dataset {C1(n4_ss_N1_0001_des)} -plot Plot_C1(n4_ss_N1_0001_des)
+#-> Curve_1
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -reset
+zoom_plot -plot Plot_C1(n4_ss_N1_0001_des) -window {-0.0737978 -1.06093e-06 0.116188 -9.01475e-07}
+probe_curve {Curve_1} -valueX 0.0134483
+#-> -9.53830602009e-07
+probe_curve {Curve_1} -valueX 0.0524082
+#-> -1.0313631154e-06
+select_plots {Plot_n4_ss_N1_0001_des}
+#-> Plot_n4_ss_N1_0001_des
+select_plots {Plot_C1(n4_ss_N1_0001_des)}
+#-> Plot_C1(n4_ss_N1_0001_des)
+select_plots {Plot_n4_ss_N1_0001_des}
+#-> Plot_n4_ss_N1_0001_des
+exit 0
+ 

@@ -1,0 +1,433 @@
+****************************************************************************
+***                           Sentaurus Device                           ***
+***                        Version T-2022.03-SP2                         ***
+***                      (0.7745337, x86_64, Linux)                      ***
+***                                                                      ***
+***                       Copyright (C) 1994-2022                        ***
+***                            Synopsys, Inc.                            ***
+***                                                                      ***
+***  This software and the associated documentation are confidential     ***
+***  and proprietary to Synopsys, Inc.  Your use or disclosure of this   ***
+***  software is subject to the terms and conditions of a written        ***
+***  license agreement between you, or your company, and Synopsys, Inc.  ***
+****************************************************************************
+
+	Running on machine with the following configuration:
+	Host Name: iitpkd21
+	Operating System: Linux rel. 3.10.0-1160.92.1.el7.x86_64 ver. #1 SMP Tue Jun 20 11:48:01 UTC 2023
+	Machine Type: x86_64
+	Process ID: 10338
+	Number of processors: 4
+	Domain Name: (none)
+	Date: Thu Jun  6 00:06:03 2024  (EDT)
+
+Thu Jun  6 00:06:04 2024: checked out 1 sdevice license(s)
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_isource2.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_vsource.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_sRL.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/bs_psource.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_pGC.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_vsource2.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_isource.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_SRL1.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/scm/ferroelectric.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/scm/MOS_harness.ccf
+Parsing circuit file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/scm/satinductor.ccf
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/scm/satinductor.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/scm/MOS_harness.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/scm/ferroelectric.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_SRL1.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_isource.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_vsource2.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_pGC.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/bs_psource.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_sRL.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_vsource.so.linux64
+Loading shared object file /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice/sd_hb_isource2.so.linux64
+
+Input source: pp2_des.cmd
+
+===============================
+
+no Output file
+
+
+GlobalParameter {
+}
+no ACExtract file
+
+PMIPath file: /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice-33.0.7745337 /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice
+
+CMIPath file: /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/sdevice /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/linux64/lib/scm
+
+SPICEPath file: /opt/synopsys/TCAD/sentaurus/T-2022.03-SP2/bin/../tcad/current/lib/sdevice-33.0.7745337/spice
+
+no DevicePath file
+
+no CIRCUITSAVENAME file
+
+no CIRCUITLOADNAME file
+
+Numerical parameters:
+  Absolute error : 
+    Poisson : 1.0000e-03
+    eqPoisson : 1.0000e-03
+    Electron : 1.0000e-05
+    Hole : 1.0000e-05
+    Photon-Rate-Equation : 1.0000e-07
+    Photon-Phase-Equation : 1.0000e-05
+    Rate-Stabilize-Equation : 1.0000e-07
+    QW-Scattering-Equations : 1.0000e-05
+    QW-eScattering-Equation : 1.0000e-05
+    QW-hScattering-Equation : 1.0000e-05
+    Optical Problem : 1.0000e-03
+    Wavelength : 1.0000e-03
+    Bandstructure : 1.0000e-03
+    EmissionTable : 1.0000e-03
+    DephasingRates : 1.0000e-03
+    Photon Recycling : 1.0000e-03
+    Electron-Temperature : 1.0000e-04
+    Hole-Temperature : 1.0000e-04
+    Lattice-Hole-Electron-Temperature : 1.0000e-03
+    Circuit : 1.0000e-03
+    TCircuit : 1.0000e-03
+    Contact : 1.0000e-03
+    TContact : 1.0000e-03
+    Continuation : 1.0000e-03
+    eLaplace : 1.0000e-03
+    hLaplace : 1.0000e-03
+    tLaplace : 1.0000e-03
+    electron quasi-fermi-potential : 1.0000e-03
+    hole quasi-fermi-potential : 1.0000e-03
+    MonteCarlo : 1.0000e-03
+    MCPoissonPDE : 1.0000e-03
+    eQuantumPotential : 1.0000e-03
+    hQuantumPotential : 1.0000e-03
+    quasi-fermi-potential : 1.0000e-03
+    ConductiveInsulator : 1.0000e-03
+    ContactAndConductiveInsulator : 1.0000e-03
+    SingletExciton : 1.0000e-05
+    FEPolarization : 1.0000e-05
+    FEPolarizationX : 1.0000e-05
+    FEPolarizationY : 1.0000e-05
+    FEPolarizationZ : 1.0000e-05
+    FEPolDivFree : 1.0000e-03
+    eHopping : 1.0000e-03
+    hHopping : 1.0000e-03
+    HydrogenAtom : 1.0000e-03
+    HydrogenMolecule : 1.0000e-03
+    HydrogenIon : 1.0000e-03
+    HydrogenSpeciesA : 1.0000e-03
+    HydrogenSpeciesB : 1.0000e-03
+    HydrogenSpeciesC : 1.0000e-03
+    HydrogenSiliconBondOccupation : 1.0000e-03
+    TrapPDE : 1.0000e-03
+    eSHEDistribution : 1.0000e-03
+    hSHEDistribution : 1.0000e-03
+    Landau-Lifshitz-Gilbert[theta] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[phi] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[x] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[y] : 1.0000e-03
+    Landau-Lifshitz-Gilbert[z] : 1.0000e-03
+    Mechanics : 1.0000e-03
+    ExternalTransportSolver : 1.0000e-03
+    ReactionDiffusionPDE : 1.0000e-03
+  RelErrControl (Reference error): 
+    Poisson : 0.025852
+    eqPoisson : 1
+    Electron : 1.0000e+10
+    Hole : 1.0000e+10
+    Photon-Rate-Equation : 1.0000e-07
+    Photon-Phase-Equation : 1
+    Rate-Stabilize-Equation : 1.0000e-07
+    QW-Scattering-Equations : 1.0000e+10
+    QW-eScattering-Equation : 1.0000e+10
+    QW-hScattering-Equation : 1.0000e+10
+    Optical Problem : 1
+    Wavelength : 1
+    Bandstructure : 1
+    EmissionTable : 1
+    DephasingRates : 1
+    Photon Recycling : 1
+    Electron-Temperature : 3.0000e+02
+    Hole-Temperature : 3.0000e+02
+    Lattice-Hole-Electron-Temperature : 3.0000e+02
+    Circuit : 1
+    TCircuit : 1
+    Contact : 0.025852
+    TContact : 1
+    Continuation : 1
+    eLaplace : 1
+    hLaplace : 1
+    tLaplace : 1
+    electron quasi-fermi-potential : 0.025852
+    hole quasi-fermi-potential : 0.025852
+    MonteCarlo : 1
+    MCPoissonPDE : 1
+    eQuantumPotential : 0.025852
+    hQuantumPotential : 0.025852
+    quasi-fermi-potential : 0.025852
+    ConductiveInsulator : 1
+    ContactAndConductiveInsulator : 1
+    SingletExciton : 1.0000e+10
+    FEPolarization : 0.025852
+    FEPolarizationX : 0.025852
+    FEPolarizationY : 0.025852
+    FEPolarizationZ : 0.025852
+    FEPolDivFree : 1
+    eHopping : 0.025852
+    hHopping : 0.025852
+    HydrogenAtom : 1.0000e+10
+    HydrogenMolecule : 1.0000e+10
+    HydrogenIon : 1.0000e+10
+    HydrogenSpeciesA : 1.0000e+10
+    HydrogenSpeciesB : 1.0000e+10
+    HydrogenSpeciesC : 1.0000e+10
+    HydrogenSiliconBondOccupation : 1
+    TrapPDE : 1.0000e-05
+    eSHEDistribution : 0.025852
+    hSHEDistribution : 0.025852
+    Landau-Lifshitz-Gilbert[theta] : 1
+    Landau-Lifshitz-Gilbert[phi] : 1
+    Landau-Lifshitz-Gilbert[x] : 1
+    Landau-Lifshitz-Gilbert[y] : 1
+    Landau-Lifshitz-Gilbert[z] : 1
+    Mechanics : 1
+    ExternalTransportSolver : 1
+    ReactionDiffusionPDE : 1
+  Relative error : 5 digits
+  Without checked transient error
+  Max. #iterations : 50
+  LineSearchDamping=1
+  #undamped iterations : 100
+  No incomplete Newton
+  transient method : TR-BDF
+  Linear solver : blocked decomposition
+  Linear solver for AC analysis : blocked decomposition
+  Linear solver for SHEDistribution Model : Super
+  use linear extrapolation in transient/quasistationary computations
+  use complex supernodal in ac-analysis (if possible)
+  do not use smoothed PDE's in transient/quasistationary computations
+  use automatic coupling of contact/circuit stuff
+  Spice temperature: 3.0015e+02
+  Spice nominal temperature of parameter measurements: 3.0015e+02
+  Spice minimum conductance gmin: 1.0000e-12
+  Use 64 bit (double) normal precision floating point arithmetic.
+  Mininum |rhs| : 1.0000e-05
+  Maximum |rhs| (transient): 1.0000e+15
+  Maximum |rhs| (non-transient): 1.0000e+100
+  Maximum |rhs| factor : 1.0000e+10
+  Maximum |rhs| factor1 : 1.0000e+10
+  Lattice Temperature Range : (50,5.0000e+03)
+  Carrier Temperature Range : (10,8.0000e+04)
+  Simplified first order SHE of BTE will be solved
+  SHERefinementCutoff : 20
+  No user dependencies.
+  Number of assembly threads: 1 (command line max_threads)
+  Number of solver threads: 1 (command line max_threads)
+  Thread stacksize: 1000000 bytes (default)
+  Go serial if not enough parallel licenses are available.
+  Model: Math  Switched on
+
+Default device parameters:
+  Electrodes:
+    "source" : 0.0000e+00 V (Ohmic), area factor : 1
+    "drain" : 0.0000e+00 V (Ohmic), area factor : 1
+  RayTrace Boundaries:
+  Files:
+    no Boundary file
+    no Grid file
+    no Doping file
+    no MobilityDoping file
+    no MIMCurrent file
+    no MIMDefects file
+    no InitialDefects file
+    no CyclicNorm file
+    no MIMBand file
+    no MIMSensitivity file
+    no Load file
+    no Save file
+    no Plot file
+    no DevFieldsName file
+    no Path file
+    no Lifetime file
+    no Temperature file
+    no Current file
+    no PMIUserFields file
+    no Extraction file
+    no ModelParameters file
+    ParameterPath directories: 
+    no Piezo file
+    no mcDOS file
+    no ModeGain file
+    no Optical emission table for stimulated emission file
+    no Optical emission table for spontaneous emission file
+    no Optical emission table for photon phase change coefficient file
+    no EmissionTable file
+    no DephasingRates file
+    no OpticalFarField file
+    no OpticalIntensityPattern file
+    no SaveOpticalIntensityPattern file
+    no IlluminationSpectrum file
+    no SpectralPlot file
+    no OpticalSolverInput file
+    no OpticalGenerationInput file
+    no OpticalGenerationOutuput file
+    no OptGenTransientScaling file
+    no MonteCarloInput file
+    no MonteCarloOutput file
+    no ACPlot file
+-----------------------------------------------
+  Numerical parameters:
+    With avalanche derivatives
+    Using New Plot Names
+    Anisotropy Effects are modeled in TGA_Aniso Approximation
+    Using old wavelength search algorithm
+    Do not reinitialize quasi Fermi potentials in quasi-stationary simulations
+    Ignore ionization integral constraints
+    Without diagonal preconditioning
+    With Scharfetter-Gummel Discretization
+    Relative error : 5 digits
+    Delta for numerical tunnelling derivatives : 1.0000e-03
+    Do not compute breakdown paths and ionization integrals
+    QuasiFermiPotential is used for Contact Equation
+    With usage of best vertex in element (maximum element-vertex volume angle) for impact ionization models
+-----------------------------------------------
+-----------------------------------------------
+  Physical models:
+    Without incomplete ionization
+    Use Si parameters
+    TATNonlocalPathNC = 0.0000e+00
+    With SRH-Recombination
+      Without field dependent lifetimes
+      Without doping dependent lifetimes
+      Without temperature dependent lifetimes
+    Without CDL-Recombination
+    With optical generation computation 
+    Without Band-to-Band-Tunneling
+    Without Auger-Recombination
+    Without Radiative Recombination
+    Without Surface-Recombination
+    Without Trap-Assisted-Auger-Recombination
+    PMI recombination models: none
+    Without thermal resistance interfaces
+    Without distributed resistance interfaces for electrons
+    Without distributed resistance interfaces for holes
+    Without Piezo
+    With Anisotropic Material Properties:
+      EpsilonFactor = 1.000 (OBSOLETE)
+      anisotropic electrical permittivity
+      Anisotropic Direction in Cristal System: ( 0.000, 0.000, 1.000 ) um
+      Hatakeyama model uses Anisotropic Direction 
+      eMobilityFactor = 1.000 
+      hMobilityFactor = 1.000 
+      AnisoMetalResistivityFactor = 1.000 
+      eVsatFactor = 1.000 (OBSOLETE)
+      hVsatFactor = 1.000 (OBSOLETE)
+      eAvalancheFactor = 1.000 (OBSOLETE)
+      hAvalancheFactor = 1.000 (OBSOLETE)
+      OriKddX : ( 1.000, 0.000, 0.000 ) 
+      OriKddY : ( 0.000, 1.000, 0.000 ) 
+    Without Avalanche-Generation 
+    Without Alpha Particle
+    Without Heavy Ion
+    Without polarization
+    Volume charge density: 0.0000e+00 cm^-3
+    Device Temperature = 3.0000e+02 K
+    Electron Quasi Fermi Potential: 0.0000e+00 V
+    Hole Quasi Fermi Potential: 0.0000e+00 V
+    Without MagneticField
+    With SingletExciton Barrier Type
+    Fermi Statistic 
+    Intrinsic density models:
+      default bandgap model
+      Bandgap narrowing model: OldSlotboom with bandgap narrowing (Fermi)
+    default affinity model
+    default effective mass model
+    Electron mobility:
+      Doping dependence:
+        Default
+      no Carrier-Carrier scattering
+      no bulk trap Coulomb scattering 
+      E_normal dependence:
+        Lombardi
+      Without ThinLayer mobility model
+      High-field mobility: Caughey-Thomas saturation model, using gradient quasi-Fermi potential
+      Einstein relation for diffusivity-mobility ratio
+      no band tail high-field mobility
+    Hole mobility:
+      Doping dependence:
+        Default
+      no Carrier-Carrier scattering
+      no bulk trap Coulomb scattering 
+      E_normal dependence:
+        Lombardi
+      Without ThinLayer mobility model
+      High-field mobility: Caughey-Thomas saturation model, using gradient quasi-Fermi potential
+      Einstein relation for diffusivity-mobility ratio
+      no band tail high-field mobility
+    With quantum potential for electrons
+      Use Synopsys' potential-based formula
+      Do not resolve abrupt jumps in band edge
+    DefaultBC BoundaryCondition
+    Energy relaxation time model: according to formula in parameter file
+    Schottky resistance model: default bult-in model
+    Lattice thermal conductivity model: according to formula in parameter file
+    Metal Resistivity model: according to formula in parameter file
+    Thermo Electric Power model: extraploted Si data
+    Metal Thermo Electric Power model: MetalThermoElectricPower model not defined
+    Lattice heat capacity model: temperature dependent
+    no piezoelectric polarization model
+    Without default parameters from file (use built-in default parameters)
+-----------------------------------------------
+- - - - - - - - - - - - - - - - - - - - - - - - 
+  The following Physical models were changed
+              for Material = 'AlGaN'
+
+    Internal Mole Fraction Specification:
+        xMoleFractionConst = 0.21
+
+    Without thermal resistance interfaces
+    Without distributed resistance interfaces for electrons
+    Without distributed resistance interfaces for holes
+- - - - - - - - - - - - - - - - - - - - - - - -
+  Process information for extraction purposes:
+    none
+  Plot variables:
+    eDensity
+    hDensity
+    ElectricField/Vector
+    ElectrostaticPotential
+    DopingConcentration
+    DonorConcentration
+    AcceptorConcentration
+    ConductionBandEnergy
+    ValenceBandEnergy
+
+------------------------------------------------
+  NoisePlot variables:
+    none
+  Plot groups:
+    none
+
+------------------------------------------------
+  CurrentPlot variables:
+    none
+Devices:
+Systems:
+Solve :
+ Poisson
+Coupled ( Digits : 5, Max. #iterations : 50, 
+    Solver : blocked decomposition,
+    #undamped iterations : 100 
+    )
+    { Poisson Electron Hole } 
+Plot( FilePrefix = "n2_eq" overwrite )
+  { }
+
+===============================
+
+
+Couldn't find name for geometry file !
+
+Thu Jun  6 00:06:04 2024: checked in 1 sdevice license(s)

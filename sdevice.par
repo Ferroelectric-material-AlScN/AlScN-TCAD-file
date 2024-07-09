@@ -1,0 +1,52 @@
+#define ParFileDir .
+
+Material="AlN" {
+  #includeext "ParFileDir/AlN.par"
+}
+Material="AlGaN" {
+  #includeext "ParFileDir/AlGaN.par"
+}
+Material="AlOx" {
+  # WARNING: no parameter file found for material AlOx in the material database
+}
+Material="AlScN" {
+  # WARNING: no parameter file found for material AlScN in the material database
+}
+Material="GaN" {
+  #includeext "ParFileDir/GaN.par"
+}
+Material="Silicon" {
+  #includeext "ParFileDir/Silicon.par"
+}
+LatticeParameters
+{
+  * X and Y vectors define the simulation coordinate system relative to the
+  * crystal orientation system.
+    X = (0 0 -1)
+    Y = (1 0  0)
+}
+
+# Also define Piezoelectric polarization Formula=2 outside of any material blocks so that
+# it is used for all regions in the simulation
+Piezoelectric_Polarization {
+Formula= 2
+}
+
+
+
+
+Region= "region_GaN_channel" {
+
+* Lower value for constant mobility in the buffer layer
+ConstantMobility:
+{ * mu_const = mumax (T/T0)^(-Exponent)
+mumax = 1900 , 2100 # [cm2/(Vs)]
+Exponent = 1 , 2.1 # [1]
+}
+}
+
+ThermionicEmission {
+*Formula=0 * Default: activates the old model, where the Boltzmann-like thermionic emission equations similar are used.
+* This can lead to incorrect results in high carrier density. In this case, a warning message will be given.
+Formula=1 * Thermionic Emission Model With Fermi Statistics
+}

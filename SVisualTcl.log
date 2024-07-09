@@ -1,0 +1,110 @@
+###########################################
+# Sentaurus Visual T-2022.03-SP2.
+# Tcl log file.
+#------------------------------------------
+# Date: Jul 09, 2024. 01:30:19.
+# Version: 33.0.7745337 (0.7745337)
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: iitpkd21.
+# Machine: Linux, x86_64, x86_64.
+# Kernel: 3.10.0-1160.92.1.el7.x86_64.
+###########################################
+
+load_file /home/student/Desktop/AlScN_All/trpas_changed_both_donor_and_acceptor_AlScN/n3_msh.tdr -fod
+create_plot -dataset n3_msh
+select_plots {Plot_n3_msh}
+#-> Plot_n3_msh
+#-> Plot_n3_msh
+#-> n3_msh
+set_material_prop {Contact AlOx Interface AlGaN AlN AlScN GaN Silicon} -plot Plot_n3_msh -geom n3_msh -show_mesh
+#-> 0
+zoom_plot -plot Plot_n3_msh -reset
+zoom_plot -plot Plot_n3_msh -window {-0.136357 -0.0201398 0.681966 6.19384}
+zoom_plot -plot Plot_n3_msh -window {-0.23926 1.67752 0.992463 4.62996}
+zoom_plot -plot Plot_n3_msh -window {-0.136296 2.19041 0.308653 3.15703}
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.331
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.4641
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.4641
+zoom_plot -plot Plot_n3_msh -factor 1.4641
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.4641
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.4641
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.683013
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.61051
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.683013
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.751315
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.826446
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.21
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.513158
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.564474
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.751315
+zoom_plot -plot Plot_n3_msh -factor 0.564474
+zoom_plot -plot Plot_n3_msh -factor 0.564474
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.564474
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.564474
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.331
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.77156
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.61051
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.61051
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.61051
+zoom_plot -plot Plot_n3_msh -factor 1.1
+zoom_plot -plot Plot_n3_msh -factor 1.4641
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.564474
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.564474
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.620921
+zoom_plot -plot Plot_n3_msh -factor 0.909091
+zoom_plot -plot Plot_n3_msh -factor 0.620921
+zoom_plot -plot Plot_n3_msh -reset
+zoom_plot -plot Plot_n3_msh -window {-0.171385 -0.116939 2.48214 6.12729}
+zoom_plot -plot Plot_n3_msh -reset
+set_material_prop {Contact AlOx Interface AlGaN AlN AlScN GaN Silicon} -plot Plot_n3_msh -geom n3_msh -hide_mesh
+#-> 0
+export_view {/home/student/Desktop/AlScN_All/AlScN structur.png} -plots {Plot_n3_msh} -format png
+#-> 0
+zoom_plot -plot Plot_n3_msh -window {-0.294829 1.65049 1.40517 4.15745}
+zoom_plot -plot Plot_n3_msh -window {-0.126647 1.83693 0.666535 3.63465}
+zoom_plot -plot Plot_n3_msh -reset
+set_material_prop {Contact AlOx Interface AlGaN AlN AlScN GaN Silicon} -plot Plot_n3_msh -geom n3_msh -show_mesh
+#-> 0
+zoom_plot -plot Plot_n3_msh -window {-0.0150823 2.05397 0.431437 2.65112}
+export_view /home/student/Desktop/AlScN_All/Meshing.png -plots {Plot_n3_msh} -format png
+#-> 0
